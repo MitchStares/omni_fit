@@ -32,19 +32,10 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
 
-  var listItems = [HeadingItem('Heading 1'), MessageItem('sender', 'body')];
-
-  // List<ListItem> _listItems = [
-  //   HeadingItem('Heading 1'),
-  //   MessageItem('sender', 'body')
-  // ];
-
   static List<Widget> _widgetOptions = <Widget>[
     DashPage(),
     CalendarPage(),
-    WorkoutPage(
-      items: [HeadingItem('Heading 1'), MessageItem('sender', 'body')],
-    ),
+    WorkoutPage(),
     SettingsPage(),
   ];
 

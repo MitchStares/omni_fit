@@ -31,7 +31,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
       padding: const EdgeInsets.all(8),
       itemCount: entries.length,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
+        return SizedBox(
             height: 50,
             // color: Colors.amber[colorCodes[index]],
             // color: _selected == true

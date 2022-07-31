@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WorkoutPage extends StatefulWidget {
   const WorkoutPage({super.key});
@@ -32,17 +33,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
       itemCount: entries.length,
       itemBuilder: (BuildContext context, int index) {
         return SizedBox(
-            height: 50,
-            // color: Colors.amber[colorCodes[index]],
-            // color: _selected == true
-            //     ? selectedIndex == index
-            //         ? Colors.amber
-            //         : Colors.transparent
-            //     : Colors.transparent,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ListTile(
+          height: 50,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ListTile(
                     leading: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: () {
@@ -65,18 +60,50 @@ class _WorkoutPageState extends State<WorkoutPage> {
                         ),
                       ),
                     ),
+                    dense: false,
                     title: Text(exercises[index]),
-                    trailing: Text('Reps: ${reps[index]}'),
-                    dense: true,
-                  ),
-                ),
-              ],
-            ));
+                    trailing: SizedBox(
+                      width: 150.0, //replace with media query for size
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.end,
+                              decoration: InputDecoration.collapsed(
+                                  //border: const OutlineInputBorder(),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.grey),
+                                  hintText: 'Reps: ${reps[index]}'),
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: IconButton(
+                              icon: const Icon(Icons.chevron_right),
+                              color: Colors.black26,
+                              onPressed: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
+            ],
+          ),
+        );
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 
+//Testing for "traling"
+//TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Reps: ${reps[index]}'),),
+//Text('Reps: ${reps[index]}'),
   /// The base class for the different types of items the list can contain.
 }
 

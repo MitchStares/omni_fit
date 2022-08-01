@@ -34,7 +34,7 @@ class _DashPageState extends State<DashPage> {
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: 150,
               child: ListView(
                 physics:
                     const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
@@ -53,7 +53,7 @@ class _DashPageState extends State<DashPage> {
                     ],
                   ),
                   Row(
-                    children: [
+                    children: const <Widget>[
                       Expanded(
                         child: ListTile(
                           title: Text("Log Food"),
@@ -63,6 +63,9 @@ class _DashPageState extends State<DashPage> {
                   )
                 ],
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(25),
             ),
             Expanded(
               child: GridView.count(

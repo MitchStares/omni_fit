@@ -171,6 +171,7 @@ class _StepChartState extends State<StepChart> {
           ),
         ),
       ],
+      lineTouchData: LineTouchData(enabled: false),
     );
   }
 }

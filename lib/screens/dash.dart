@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:omni_fit/functionality/steps_chart.dart';
+import 'package:omni_fit/screens/cards/steps.dart';
+import 'package:omni_fit/screens/cards/weight.dart';
 
 class DashPage extends StatefulWidget {
   DashPage({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class DashPage extends StatefulWidget {
 class _DashPageState extends State<DashPage> {
   final TextStyle optionStyle =
       const TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  int steps = 7631;
+
   DateTime now = DateTime.now();
   //DateTime.now().toString().substring(0, 10) //This can be used directly in a Text() widget.
 
@@ -71,44 +73,8 @@ class _DashPageState extends State<DashPage> {
                 crossAxisCount: 2,
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
-                  SizedBox(
-                    height: 48,
-                    width: 48,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        semanticContainer: true,
-                        color: Colors.grey[200],
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment
-                                  .start, //delete if not centering horizontally
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "$steps",
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
-                                ),
-                                const Text(" steps")
-                              ],
-                            ),
-                            SizedBox(
-                              height: 50.0,
-                              child: Expanded(
-                                child: StepChart(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  StepCard(),
+                  WeightCard(),
                 ],
               ),
             ),

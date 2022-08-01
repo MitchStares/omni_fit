@@ -50,6 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Omni-fit Tracker'),
+        elevation: 0,
         centerTitle: true,
       ),
       body: Center(

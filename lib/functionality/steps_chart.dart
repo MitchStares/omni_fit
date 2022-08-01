@@ -91,7 +91,7 @@ class _StepChartState extends State<StepChart> {
         verticalInterval: 1,
         getDrawingHorizontalLine: (value) {
           return FlLine(
-            color: const Color(0xff37434d),
+            color: Color.fromRGBO(55, 67, 77, 1),
             strokeWidth: 1,
           );
         },
@@ -154,13 +154,13 @@ class _StepChartState extends State<StepChart> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
-          barWidth: 5,
+          barWidth: 1.5,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
           ),
           belowBarData: BarAreaData(
-            show: true,
+            show: false,
             gradient: LinearGradient(
               colors: gradientColors
                   .map((color) => color.withOpacity(0.3))
